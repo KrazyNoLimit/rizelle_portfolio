@@ -68,13 +68,22 @@
             </button>
         </div>
 
-        <!-- Mobile Menu Stack -->
-        <div id="mobile-menu" class="fixed inset-x-0 top-16 bottom-0 w-full bg-zinc-950 z-50 flex flex-col p-6 gap-5 hidden border-t border-white/5">
-            <a href="#hero" class="mobile-nav-link text-lg font-medium text-zinc-400 hover:text-white">Home</a>
-            <a href="#about" class="mobile-nav-link text-lg font-medium text-zinc-400 hover:text-white">About</a>
-            <a href="#experience" class="mobile-nav-link text-lg font-medium text-zinc-400 hover:text-white">Experience</a>
-            <a href="#designs" class="mobile-nav-link text-lg font-medium text-zinc-400 hover:text-white">Designs</a>
-            <a href="#skills" class="mobile-nav-link text-lg font-medium text-zinc-400 hover:text-white">Skills</a>
+        <!-- Mobile Menu Overlay (dark backdrop) -->
+        <div id="mobile-menu-overlay" style="background-color:rgba(0,0,0,0.6);" class="fixed inset-0 z-40 hidden md:hidden"></div>
+
+        <!-- Mobile Side Menu (slide-in drawer) -->
+        <div id="mobile-menu" style="background-color:#000000; width:280px; max-width:80%; transform:translateX(100%); transition:transform 0.3s ease;" class="fixed top-0 right-0 bottom-0 z-50 flex flex-col p-4 gap-3 border-l border-white/10">
+            <div class="flex items-center justify-between px-2 pt-2 pb-4 mb-1 border-b border-white/10">
+                <span class="text-sm font-mono tracking-widest uppercase text-zinc-500">Menu</span>
+                <button id="menu-close" class="p-1 text-zinc-400 hover:text-white transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <a href="#hero" style="background-color:#18181B;" class="mobile-nav-link block px-5 py-4 rounded-xl border border-white/5 text-lg font-medium text-zinc-300 hover:text-white">Home</a>
+            <a href="#about" style="background-color:#18181B;" class="mobile-nav-link block px-5 py-4 rounded-xl border border-white/5 text-lg font-medium text-zinc-300 hover:text-white">About</a>
+            <a href="#experience" style="background-color:#18181B;" class="mobile-nav-link block px-5 py-4 rounded-xl border border-white/5 text-lg font-medium text-zinc-300 hover:text-white">Experience</a>
+            <a href="#designs" style="background-color:#18181B;" class="mobile-nav-link block px-5 py-4 rounded-xl border border-white/5 text-lg font-medium text-zinc-300 hover:text-white">Designs</a>
+            <a href="#skills" style="background-color:#18181B;" class="mobile-nav-link block px-5 py-4 rounded-xl border border-white/5 text-lg font-medium text-zinc-300 hover:text-white">Skills</a>
         </div>
     </nav>
 
@@ -127,12 +136,6 @@
                     </div>
                 </div>
 
-                <!-- Clean Premium White Button -->
-                <div class="pt-4 flex flex-wrap gap-4">
-                    <a href="#experience" class="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold text-zinc-950 bg-white hover:bg-accent-cyan rounded transition-all duration-300">
-                        View My Work <i data-lucide="arrow-down" class="w-4 h-4"></i>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
