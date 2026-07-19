@@ -1,30 +1,57 @@
 // Initialize Lucide icons
 lucide.createIcons();
 
+// Laging magsimula sa pinakataas (hero) pag nag-refresh o bagong bukas
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+});
+ 
 // Responsive Mobile Nav Stack
 const menuToggle = document.getElementById('menu-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
+const menuOverlay = document.getElementById('mobile-menu-overlay');
+const menuClose = document.getElementById('menu-close');
 let isOpen = false;
 
-menuToggle.addEventListener('click', () => {
-    isOpen = !isOpen;
-    if (isOpen) {
-        mobileMenu.classList.remove('hidden');
-        menuToggle.innerHTML = `<i data-lucide="x" class="w-6 h-6"></i>`;
-    } else {
-        mobileMenu.classList.add('hidden');
-        menuToggle.innerHTML = `<i data-lucide="menu" class="w-6 h-6"></i>`;
-    }
+function openMenu() {
+    isOpen = true;
+    mobileMenu.style.transform = 'translateX(0)';
+    menuOverlay.classList.remove('hidden');
+    menuToggle.innerHTML = `<i data-lucide="x" class="w-6 h-6"></i>`;
+    document.body.style.overflow = 'hidden';
     lucide.createIcons();
+}
+
+function closeMenu() {
+    isOpen = false;
+    mobileMenu.style.transform = 'translateX(100%)';
+    menuOverlay.classList.add('hidden');
+    menuToggle.innerHTML = `<i data-lucide="menu" class="w-6 h-6"></i>`;
+    document.body.style.overflow = '';
+    lucide.createIcons();
+}
+
+menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (isOpen) closeMenu();
+    else openMenu();
+});
+
+if (menuClose) menuClose.addEventListener('click', closeMenu);
+if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+
+// Isara ang menu kapag nag-tap sa labas ng drawer (hindi sa toggle button)
+document.addEventListener('click', (e) => {
+    if (!isOpen) return;
+    if (mobileMenu.contains(e.target) || menuToggle.contains(e.target)) return;
+    closeMenu();
 });
 
 document.querySelectorAll('.mobile-nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        isOpen = false;
-        mobileMenu.classList.add('hidden');
-        menuToggle.innerHTML = `<i data-lucide="menu" class="w-6 h-6"></i>`;
-        lucide.createIcons();
-    });
+    link.addEventListener('click', closeMenu);
 });
 
 // Lightbox Expansion Logic
