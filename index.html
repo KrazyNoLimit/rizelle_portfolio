@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rizelle De Asis | Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        zinc: {
+                            950: '#09090B',
+                            900: '#141417',
+                            800: '#18181B',
+                            700: '#27272A',
+                            600: '#52525B',
+                        },
+                        accent: {
+                            cyan: '#38bdf8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-sans antialiased selection:bg-accent-cyan selection:text-zinc-950">
+
+    <!-- AMBIENT BACKGROUND GLOW -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="ambient-glow absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] rounded-full"></div>
+        <div class="ambient-glow absolute bottom-[10%] right-[-10%] w-[50vw] h-[50vw] rounded-full"></div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 left-0 w-full h-16 bg-zinc-950/80 backdrop-blur-md border-b border-white/5 z-40">
+        <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="#hero" class="text-xl font-black tracking-wide masked-text">RIZELLE DE ASIS</a>
+            </div>
+
+            <!-- Simple Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
+                <a href="#hero" class="hover:text-white transition-colors">Home</a>
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+                <a href="#designs" class="hover:text-white transition-colors">Designs</a>
+                <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button id="menu-toggle" class="md:hidden p-2 text-zinc-400 hover:text-white transition-colors focus:outline-none">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Stack -->
+        <div id="mobile-menu" class="fixed inset-0 top-16 w-full bg-zinc-950/95 backdrop-blur-lg z-40 flex flex-col p-6 gap-5 hidden border-t border-white/5">
+            <a href="#hero" class="mobile-nav-link text-lg font-medium text-zinc-400 hover:text-white">Home</a>
+            <a href="#about" class="mobile-nav-link text-lg font-medium text-zinc-400 hover:text-white">About</a>
+            <a href="#experience" class="mobile-nav-link text-lg font-medium text-zinc-400 hover:text-white">Experience</a>
+            <a href="#designs" class="mobile-nav-link text-lg font-medium text-zinc-400 hover:text-white">Designs</a>
+            <a href="#skills" class="mobile-nav-link text-lg font-medium text-zinc-400 hover:text-white">Skills</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative min-h-[calc(100vh-64px)] flex items-center px-6 z-10 max-w-7xl mx-auto py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+            
+            <!-- Presentation Image Area -->
+            <div class="lg:col-span-5 flex justify-center lg:justify-start order-2 lg:order-1 h-full w-full">
+                <!-- Tinanggal ang flat box frame wrapper; ang mismong image cutout na ngayon ang lulutang gamit ang hover sweep natin -->
+                <div class="w-full h-[380px] sm:h-[500px] lg:h-[550px] max-w-[450px] flex items-center justify-center tilt-scene">
+                    <img src="images/profile/riz.jpg" alt="E-Jay Cachuela" class="tilt-card w-full h-full object-contain relative z-10 ">
+                </div>
+            </div>
+            
+            <!-- Text Info Area -->
+            <div class="lg:col-span-7 space-y-6 order-1 lg:order-2">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 text-xs font-mono text-accent-cyan">
+                    <span class="w-2 h-2 rounded-full bg-accent-cyan animate-pulse"></span> Open for Opportunities
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                    Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-zinc-400">Rizelle De Asis</span>
+                </h1>
+                <p class="text-lg text-zinc-400 font-normal leading-relaxed max-w-xl">
+                    A passionate <strong class="text-white">Graphic Designer</strong> specializing in brand identities, poster concepts, and clean visual layouts. I enjoy turning smart concepts into polished, memorable visual experiences.
+                </p>
+                
+                <!-- Contact Details with Interactive Click-to-Copy Framework -->
+                <div class="space-y-3 pt-2 text-sm text-zinc-400 font-mono">
+                    <div class="flex items-center gap-3 cursor-pointer group w-fit relative" onclick="copyContactDetail('09638884940', this)">
+                        <i data-lucide="phone" class="w-4 h-4 text-accent-cyan"></i>
+                        <span class="group-hover:text-white transition-colors">09638884940</span>
+                        <div class="copy-badge flex items-center gap-1 text-[10px] bg-zinc-900 border border-white/10 text-zinc-500 px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity ml-2">
+                            <i data-lucide="copy" class="w-3 h-3 text-accent-cyan"></i> <span class="badge-text">Copy</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 cursor-pointer group w-fit relative" onclick="copyContactDetail('rizelledeasis08@gmail.com', this)">
+                        <i data-lucide="mail" class="w-4 h-4 text-accent-cyan"></i>
+                        <span class="group-hover:text-white transition-colors">rizelledeasis08@gmail.com</span>
+                        <div class="copy-badge flex items-center gap-1 text-[10px] bg-zinc-900 border border-white/10 text-zinc-500 px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity ml-2">
+                            <i data-lucide="copy" class="w-3 h-3 text-accent-cyan"></i> <span class="badge-text">Copy</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 cursor-pointer group w-fit relative" onclick="copyContactDetail('Zone 2 Pag-Asa, Brgy. Kita-kita, San Jose City, Nueva Ecija', this)">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-accent-cyan"></i>
+                        <span class="group-hover:text-white transition-colors">San Jose City, Nueva Ecija, Philippines</span>
+                        <div class="copy-badge flex items-center gap-1 text-[10px] bg-zinc-900 border border-white/10 text-zinc-500 px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity ml-2">
+                            <i data-lucide="copy" class="w-3 h-3 text-accent-cyan"></i> <span class="badge-text">Copy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clean Premium White Button -->
+                <div class="pt-4 flex flex-wrap gap-4">
+                    <a href="#experience" class="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold text-zinc-950 bg-white hover:bg-accent-cyan rounded transition-all duration-300">
+                        View My Work <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-20 px-6 max-w-7xl mx-auto border-t border-white/5">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <p class="font-mono text-xs text-accent-cyan tracking-widest uppercase mb-2">My Story</p>
+                <h2 class="text-3xl font-bold tracking-tight text-white">About Me</h2>
+            </div>
+            <div class="md:col-span-2 space-y-6 text-zinc-400 text-base leading-relaxed text-justify">
+                <p>
+                    I'm a <strong class="text-white">College Graduate in Bachelor of Science Tourism Management</strong> with a genuine passion for graphic design and visual editing. It all started as a hobby during my student years—creating logos, page layouts, and custom graphics for friends and school projects—and grew into the creative craft I focus on today.
+                </p>
+                <p>
+                    I believe that effective design doesn't need to be loud or overly complicated. Clean layouts, deliberate spatial choices, and consistent adjustments make a visual experience meaningful and memorable. I'm always eager to learn new tools and refine my craft to bring ideas to life.
+                </p>
+                
+                <!-- Direct Targets -->
+                <div class="pt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <a href="https://t.me/lalatrue0" target="_blank" class="flex items-center gap-3 p-3 rounded-lg bg-zinc-900/60 border border-white/5 hover:border-accent-cyan/40 transition-colors group">
+                        <i data-lucide="send" class="w-4 h-4 text-zinc-400 group-hover:text-accent-cyan"></i>
+                        <span class="text-xs font-medium text-zinc-300">Telegram</span>
+                    </a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rizelledeasis08@gmail.com" target="_blank" class="flex items-center gap-3 p-3 rounded-lg bg-zinc-900/60 border border-white/5 hover:border-accent-cyan/40 transition-colors group">
+                        <i data-lucide="mail" class="w-4 h-4 text-zinc-400 group-hover:text-accent-cyan"></i>
+                        <span class="text-xs font-medium text-zinc-300">Gmail Direct</span>
+                    </a>
+                    <a href="https://api.whatsapp.com/send/?phone=639638884940" target="_blank" class="flex items-center gap-3 p-3 rounded-lg bg-zinc-900/60 border border-white/5 hover:border-accent-cyan/40 transition-colors group">
+                        <i data-lucide="message-square" class="w-4 h-4 text-zinc-400 group-hover:text-accent-cyan"></i>
+                        <span class="text-xs font-medium text-zinc-300">WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE SHOWCASE -->
+    <section id="experience" class="py-20 px-6 max-w-7xl mx-auto border-t border-white/5">
+        <div class="mb-10">
+            <p class="font-mono text-xs text-accent-cyan tracking-widest uppercase mb-2">Featured History</p>
+            <h2 class="text-3xl font-bold tracking-tight text-white">Academic & Practical Experience</h2>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 max-w-2xl">
+            <!-- Experience Block: Design Internship -->
+            <div class="rounded-xl bg-zinc-900/40 border border-white/5 p-6 space-y-4 flex flex-col justify-between">
+                <div class="space-y-3">
+                    <div class="flex justify-between items-start">
+                        <span class="px-2 py-0.5 rounded bg-accent-cyan/10 text-[10px] font-mono text-accent-cyan border border-accent-cyan/20"> Internship Experience</span>
+                        <i data-lucide="layout" class="w-5 h-5 text-zinc-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white tracking-tight">Tourism & Hospitality Operations Intern</h3>
+                    <h4 class="text-xl text-white tracking-tight">Staycation Hotel | Siramata Hotel & Farm</h4>
+                    <p class="text-sm text-zinc-400 leading-relaxed text-justify">
+                        Front Desk Operations: Acted as the primary point of contact for guests, providing professional assistance during check-in and check-out procedures to ensure a seamless arrival and departure experience.</p>
+                        <p>Booking & Reservation Management: Handled room bookings and scheduling, ensuring high accuracy in guest data entry and availability tracking to prevent overbooking.</p>
+                        <p>Guest Inquiries & Support: Managed real-time inquiries via phone, email, and walk-ins, delivering clear, helpful, and courteous information regarding room rates, amenities, and local tourist attractions.</p>
+                        <p>Customer Relationship Management: Proactively addressed guest concerns and special requests, maintaining a high level of service quality to ensure guest satisfaction and brand loyalty.</p>
+                        <p>Administrative Coordination: Assisted in organizing daily guest arrival logs and maintaining systematic records of reservations, contributing to the overall operational efficiency of the front office.</p>
+                </div>
+                <div class="pt-4 border-t border-white/5 text-xs text-zinc-500 font-mono">
+                    Staycation Hotel | Siramata Hotel & Farm // 2024
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTOSHOP DESIGN SAMPLES GALLERY -->
+    <section id="designs" class="py-20 px-6 max-w-7xl mx-auto border-t border-white/5">
+        <div class="mb-10">
+            <p class="font-mono text-xs text-accent-cyan tracking-widest uppercase mb-2">Visual Artworks</p>
+            <h2 class="text-3xl font-bold tracking-tight text-white">Photoshop Works & Brandings</h2>
+        </div>
+
+        <!-- Section A: Main Portrait Posters -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-12">
+            <!-- Pacquiao Card -->
+            <div class="bg-zinc-900/40 border border-white/5 rounded-xl p-5 flex flex-col justify-between gap-4">
+                <div class="space-y-4">
+                    <div class="w-full rounded-lg overflow-hidden bg-zinc-950 border border-white/5 flex items-center justify-center p-0 cursor-pointer group holographic-card" onclick="openLightbox('images/designs/Pacquio.jpg', 'Manny Pacquiao Concept Poster')">
+                        <img src="images/designs/Pacquio.jpg" alt="Manny Pacquiao Athletic Concept" class="w-full h-auto object-contain transition-transform duration-500 relative z-10">
+                    </div>
+                    <div>
+                        <h4 class="text-base font-bold text-white mb-1">Manny Pacquiao Concept Poster</h4>
+                        <p class="text-xs text-zinc-400 leading-relaxed text-justify">
+                            An athletic composite built from scratch. Combines clean multi-subject blending, advanced face masking, localized contrast lighting, and raw texture canvas elements.
+                        </p>
+                    </div>
+                </div>
+                <button class="w-full py-2.5 rounded bg-zinc-800 hover:bg-zinc-700 text-xs font-mono font-medium text-white tracking-wide transition-colors flex items-center justify-center gap-2" onclick="openLightbox('images/designs/Pacquio.jpg', 'Manny Pacquiao Concept Poster')">
+                    <i data-lucide="eye" class="w-3.5 h-3.5 text-accent-cyan"></i> View Full Design
+                </button>
+            </div>
+
+            <!-- Ronaldo Card -->
+            <div class="bg-zinc-900/40 border border-white/5 rounded-xl p-5 flex flex-col justify-between gap-4">
+                <div class="space-y-4">
+                    <div class="w-full rounded-lg overflow-hidden bg-zinc-950 border border-white/5 flex items-center justify-center p-0 cursor-pointer group holographic-card" onclick="openLightbox('images/designs/Ronaldo.jpg', 'Cristiano Ronaldo Athletic Render')">
+                        <img src="images/designs/Ronaldo.jpg" alt="Cristiano Ronaldo Showcase" class="w-full h-auto object-contain transition-transform duration-500 relative z-10">
+                    </div>
+                    <div>
+                        <h4 class="text-base font-bold text-white mb-1">Cristiano Ronaldo Athletic Render</h4>
+                        <p class="text-xs text-zinc-400 leading-relaxed text-justify">
+                            Multi-layered action poster leveraging precise subject masking paths, custom turf environment illumination adjustments, and balanced vector typography frames.
+                        </p>
+                    </div>
+                </div>
+                <button class="w-full py-2.5 rounded bg-zinc-800 hover:bg-zinc-700 text-xs font-mono font-medium text-white tracking-wide transition-colors flex items-center justify-center gap-2" onclick="openLightbox('images/designs/Ronaldo.jpg', 'Cristiano Ronaldo Athletic Render')">
+                    <i data-lucide="eye" class="w-3.5 h-3.5 text-accent-cyan"></i> View Full Design
+                </button>
+            </div>
+        </div>
+
+        <!-- Section B: Riz Sweet Branding Suite Showcase Architecture -->
+        <div class="border-t border-white/5 pt-12 space-y-6 mb-12">
+            <div>
+                <h3 class="text-xl font-bold tracking-tight text-white mb-1">Riz Sweet Identity & Packaging Suite</h3>
+                <p class="text-xs font-mono text-zinc-500">Commercial retail identity execution, color parameters, and asset application mockups.</p>
+            </div>
+
+            <!-- 1. Primary Highlight Image Card -->
+            <div class="max-w-2xl mx-auto flex flex-col gap-4 cursor-pointer group" onclick="openLightbox('images/designs/RIZSWEET.jpg', 'Riz Sweet Brandings Logotype Asset')">
+                <div class="rounded-xl border border-white/5 overflow-hidden holographic-card bg-black flex">
+                    <img src="images/designs/RIZSWEET.jpg" alt="Riz Sweet Logo Asset" class="w-full h-auto object-contain transition-transform duration-500 relative z-10">
+                </div>
+                <div class="text-center px-4">
+                    <h4 class="text-base font-bold text-white mb-1 group-hover:text-accent-cyan transition-colors">Core Identity Logotype</h4>
+                    <p class="text-xs text-zinc-400 leading-relaxed max-w-lg mx-auto">
+                        Primary typography layout balancing smooth custom pastel script features with clean geometric block subtitles tailored for standard brand application.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2. Supporting Brand Asset Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6">
+                <!-- Color Palette -->
+                <div class="flex flex-col gap-3 cursor-pointer group" onclick="openLightbox('images/designs/rizsweet_color_palette.jpg', 'Riz Sweet Official Brand Color Palette')">
+                    <div class="border border-white/5 bg-zinc-900/30 rounded-lg overflow-hidden holographic-card flex items-center justify-center">
+                        <img src="images/designs/rizsweet_color_palette.jpg" alt="Riz Sweet Color Palette" class="w-full h-auto object-contain relative z-10">
+                    </div>
+                    <span class="text-[11px] font-medium text-zinc-400 block text-center group-hover:text-white transition-colors">Color Palette</span>
+                </div>
+
+                <!-- Tote Bag Mockup -->
+                <div class="flex flex-col gap-3 cursor-pointer group" onclick="openLightbox('images/designs/toot.jpg', 'Riz Sweet Brandings Tote Bag Layout')">
+                    <div class="border border-white/5 bg-zinc-900/30 rounded-lg overflow-hidden holographic-card flex items-center justify-center">
+                        <img src="images/designs/toot.jpg" alt="Tote Bag Branding" class="w-full h-auto object-contain relative z-10">
+                    </div>
+                    <span class="text-[11px] font-medium text-zinc-400 block text-center group-hover:text-white transition-colors">Tote Bag Application</span>
+                </div>
+
+                <!-- Kraft Bag Mockup -->
+                <div class="flex flex-col gap-3 cursor-pointer group" onclick="openLightbox('images/designs/hantoot.jpg', 'Riz Sweet Brandings Eco Kraft Bag Application')">
+                    <div class="border border-white/5 bg-zinc-900/30 rounded-lg overflow-hidden holographic-card flex items-center justify-center">
+                        <img src="images/designs/hantoot.jpg" alt="Kraft Bag Branding" class="w-full h-auto object-contain relative z-10">
+                    </div>
+                    <span class="text-[11px] font-medium text-zinc-400 block text-center group-hover:text-white transition-colors">Kraft Bag Mockup</span>
+                </div>
+
+                <!-- Signage Mockup -->
+                <div class="flex flex-col gap-3 cursor-pointer group" onclick="openLightbox('images/designs/signage.jpg', 'Riz Sweet Brandings Storefront Exterior Signage')">
+                    <div class="border border-white/5 bg-zinc-900/30 rounded-lg overflow-hidden holographic-card flex items-center justify-center">
+                        <img src="images/designs/signage.jpg" alt="Exterior Signage Branding" class="w-full h-auto object-contain relative z-10">
+                    </div>
+                    <span class="text-[11px] font-medium text-zinc-400 block text-center group-hover:text-white transition-colors">Exterior Signage Frame</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section C: PUMA Shoe Branding Suite Showcase Architecture -->
+        <div class="border-t border-white/5 pt-12 space-y-6">
+            <div>
+                <h3 class="text-xl font-bold tracking-tight text-white mb-1">PUMA Motorsport Branding Suite</h3>
+                <p class="text-xs font-mono text-zinc-500">Commercial athletic footwear poster concept and layout architecture.</p>
+            </div>
+
+            <!-- Primary Highlight Image Card for PUMA Poster -->
+            <div class="max-w-2xl mx-auto flex flex-col gap-4 cursor-pointer group" onclick="openLightbox('images/designs/PUMA_2.jpg', 'PUMA Motorsport Footwear Branding Asset')">
+                <div class="rounded-xl border border-white/5 overflow-hidden holographic-card bg-[#8A151B] flex">
+                    <img src="images/designs/PUMA_2.jpg" alt="PUMA Shoe Branding Asset" class="w-full h-auto object-contain transition-transform duration-500 relative z-10">
+                </div>
+                <div class="text-center px-4">
+                    <h4 class="text-base font-bold text-white mb-1 group-hover:text-accent-cyan transition-colors">PUMA Motorsport Advertisement Poster</h4>
+                    <p class="text-xs text-zinc-400 leading-relaxed max-w-lg mx-auto">
+                        A premium commercial layout combining bold typography overlays, targeted product details framing, and consistent balance for sportswear print lines.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX PREVIEW MODAL MODULE -->
+    <div id="lightbox-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md hidden items-center justify-center z-50 p-4 transition-all duration-300 opacity-0 pointer-events-none" onclick="closeLightbox()">
+        <div id="lightbox-container" class="relative max-w-4xl max-h-[85vh] flex flex-col items-center gap-3 transition-all duration-300 ease-out transform scale-95 opacity-0" onclick="event.stopPropagation()">
+            <button class="absolute -top-10 right-0 text-zinc-400 hover:text-white flex items-center gap-1 text-xs font-mono bg-zinc-900/80 border border-white/10 px-3 py-1 rounded shadow-md cursor-pointer" onclick="closeLightbox()">
+                <i data-lucide="x" class="w-4 h-4"></i> Close
+            </button>
+            <img id="lightbox-img" src="" alt="Expanded View" class="max-w-full max-h-[75vh] object-contain rounded-lg border border-white/10 shadow-2xl">
+            <p id="lightbox-caption" class="text-sm font-mono text-zinc-400 text-center px-4 mt-2"></p>
+        </div>
+    </div>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-20 px-6 max-w-7xl mx-auto border-t border-white/5">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <p class="font-mono text-xs text-accent-cyan tracking-widest uppercase mb-2">Technical Capabilities</p>
+                <h2 class="text-3xl font-bold tracking-tight text-white">Skills Matrix</h2>
+            </div>
+            
+            <div class="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                <!-- Card 1: Graphic Design -->
+                <div class="p-5 rounded-xl bg-zinc-900/30 border border-white/5 space-y-4">
+                    <span class="text-zinc-400 block font-semibold text-sm">Graphic Design</span>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-800 border border-white/5 rounded-lg text-white font-mono">
+                            <i data-lucide="image" class="w-3.5 h-3.5 text-accent-cyan"></i> Adobe Photoshop
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-800 border border-white/5 rounded-lg text-white font-mono">
+                            <i data-lucide="palette" class="w-3.5 h-3.5 text-pink-400"></i> Canva
+                        </span>
+                      
+                    </div>
+                </div>
+
+                <!-- Card 2: Branding & Visual Identity -->
+                <div class="p-5 rounded-xl bg-zinc-900/30 border border-white/5 space-y-4">
+                    <span class="text-zinc-400 block font-semibold text-sm">Branding & Visual Identity</span>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-800 border border-white/5 rounded-lg text-white font-mono">
+                            <i data-lucide="badge-check" class="w-3.5 h-3.5 text-accent-cyan"></i> Logo Design
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-800 border border-white/5 rounded-lg text-white font-mono">
+                            <i data-lucide="droplet" class="w-3.5 h-3.5 text-rose-400"></i> Color Palettes
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-800 border border-white/5 rounded-lg text-white font-mono">
+                            <i data-lucide="package" class="w-3.5 h-3.5 text-emerald-400"></i> Packaging & Mockups
+                        </span>
+                           <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-800 border border-white/5 rounded-lg text-white font-mono">
+                            <i data-lucide="package" class="w-3.5 h-3.5 text-emerald-400"></i> Carousel
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Multimedia & Productivity -->
+                <div class="p-5 rounded-xl bg-zinc-900/30 border border-white/5 space-y-4">
+                    <span class="text-zinc-400 block font-semibold text-sm">Multimedia & Productivity</span>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-800 border border-white/5 rounded-lg text-white font-mono">
+                            <i data-lucide="video" class="w-3.5 h-3.5 text-indigo-400"></i> CapCut Video Editing
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-800 border border-white/5 rounded-lg text-white font-mono">
+                            <i data-lucide="cloud" class="w-3.5 h-3.5 text-blue-400"></i> Google Workspace
+                        </span>
+                    </div>
+                </div>
+
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-zinc-950 border-t border-white/5 py-10 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-zinc-500">
+            <p>&copy; 2026 Rizelle De Asis. All Rights Reserved.</p>
+            <p class="flex items-center gap-2 text-zinc-400">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Asia/Manila Timezone
+            </p>
+        </div>
+    </footer>
+
+    <!-- INTERACTION SCRIPTS -->
+    <script src="script.js"></script>
+</body>
+</html>

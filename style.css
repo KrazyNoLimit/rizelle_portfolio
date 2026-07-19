@@ -1,0 +1,105 @@
+/* Aura Ambient Lighting Elements */
+.ambient-glow {
+    background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.03) 0%, rgba(9, 9, 11, 0) 70%);
+}
+
+/* Dynamic Navbar Offset Constraint */
+body {
+    padding-top: 64px;
+}
+
+/* Custom Modern Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #09090B;
+}
+::-webkit-scrollbar-thumb {
+    background: #27272A;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #38bdf8;
+}
+
+/* ==========================================================================
+   1. PROFILE PORTRAIT — SUBTLE 3D TILT & DEPTH (Home hero image lang)
+   ========================================================================== */
+.tilt-scene {
+    perspective: 900px;
+}
+
+.tilt-card {
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.6));
+}
+
+.tilt-card:hover {
+    filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.45)) drop-shadow(0 18px 30px rgba(0, 0, 0, 0.5));
+}
+
+/* Fallback smooth reset when the pointer leaves */
+.tilt-card.is-resetting {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tilt-card {
+        transform: none !important;
+    }
+}
+
+/* ==========================================================================
+   2. DESIGN CARD HOLOGRAPHIC SWEEP (Para sa Design Images)
+   ========================================================================== */
+.design-card-glow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.design-card-glow::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(0deg, transparent, transparent 30%, rgba(0,255,255,0.3));
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+  pointer-events: none; 
+  z-index: 30; 
+}
+
+.design-card-glow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0,255,255,0.5);
+}
+
+.design-card-glow:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}
+
+/* Masked Text Engine */
+.masked-text {
+    font-weight: 900;
+    color: transparent;
+    background-image: url('https://images.unsplash.com/photo-1732535725600-f805d8b33c9c?q=80&w=1470&auto=format&fit=crop'); 
+    background-size: 200%; 
+    background-position: 0 50%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-background 5s infinite alternate linear;
+}
+
+@keyframes animate-background {
+    0% { background-position: 0 50%; }
+    100% { background-position: 100% 50%; }
+}
