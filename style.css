@@ -8,6 +8,11 @@ body {
     padding-top: 64px;
 }
 
+/* Mobile Menu — siguradong SOLID ang background (hindi tumatagos ang page) */
+#mobile-menu {
+    background-color: #09090B !important;
+}
+
 /* Custom Modern Scrollbar */
 ::-webkit-scrollbar {
     width: 6px;
